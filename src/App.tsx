@@ -28,8 +28,12 @@ class ContactList extends React.Component<{}, ContactListState> {
 
     public render() {
 
-        var item: ContactListItemProps = { name: "Morgan Radic", cohort: "C1", phone: "(717) 654-5275", email: "morgan.radic@parivedasolutions.com", market: "Washington, D.C.", fact: "I really want this to work! I really do!" };
-        var data = [item];
+        var item1:ContactListItemProps = {name:"Debbie Schmidt", cohort:"C1", phone:"(743) 654-5125", email:"debbie.schmidt@example.com", market:"New York", fact:"I really want this to work! I really do!", img:"http://demos.themes.guide/bodeo/assets/images/users/w104.jpg", found:false};
+        var item2:ContactListItemProps = {name:"Mike Anamendolla", cohort:"A1", phone:"(870) 288-4149", email:"mike.ana@example.com", market:"Washington, D.C.", fact:"I have webbed feet!", img:"http://demos.themes.guide/bodeo/assets/images/users/m101.jpg", found:false};
+        var item3:ContactListItemProps = {name:"Seth Frazier", cohort:"M2", phone:"(560) 180-4143", email:"seth.frazier@example.com", market:"Dallas", fact:"I'm a former Dickey's gas station attendant and my wife collects bottle openers. Our budget is 1.5 million dolars.", img:"http://demos.themes.guide/bodeo/assets/images/users/m105.jpg", found:false};
+        var item4:ContactListItemProps = {name:"Rosemary Porter", cohort:"C2", phone:"(497) 160-9776", email:"rosemary.porter@example.com", market:"Seattle", fact:"I couldn't speak until I reached the age of six years old.", img:"http://demos.themes.guide/bodeo/assets/images/users/w102.jpg", found:false};
+
+        var data = [item1,item2,item3,item4];
         return (
             <div className="container">
             {/* <!-- Add Profile Modal --> deleted tabindex!!!*/}
@@ -122,8 +126,8 @@ class ContactList extends React.Component<{}, ContactListState> {
                             <ul className="list-group pull-down" id="contact-list">
                                 <div id="table">
                                     <div>
-                                        {data.map(x =>
-                                            <ContactListItem name={x.name} cohort={x.cohort} market={x.market} phone={x.phone} email={x.email} fact={x.fact} key={x.name} />)}
+                                         {data.map(x =>
+                                            <ContactListItem name={x.name} cohort={x.cohort} market={x.market} phone={x.phone} email = {x.email} fact = {x.fact} img = {x.img} found={x.found} key={x.name} />)} 
                                     </div>
                                 </div>
                             </ul>

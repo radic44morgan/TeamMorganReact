@@ -1,14 +1,13 @@
 import * as React from 'react';
-import dolphin from './dolphin.png';
 export interface ContactListItemProps{
     name:string;
     market: string;
     cohort: string;
     phone: string;
     email: string;
-    //img: string;
+    img: string;
     fact: string;
-    //blur: boolean;
+    found: boolean;
     //onDelete: (name:string) => void;
 }
 export class ContactListItem extends React.Component<ContactListItemProps>{
@@ -16,15 +15,21 @@ export class ContactListItem extends React.Component<ContactListItemProps>{
     //     this.props.onDelete(this.props.name);
     // }
     render()
-    {return <li className="list-group-item">
+    {
+        var blur = "";
+        if (!this.props.found)
+        {
+            blur=" blur";
+        }
+        return <li className="list-group-item">
     <div className="row w-100">
          <div className="col-12 col-sm-6 col-md-3 px-0">
-            <img src={dolphin} className="img-fluid rounded-circle d-block mx-auto"/>
+            <img src={this.props.img} className="img-fluid rounded-circle d-block mx-auto"/>
         </div> 
         <div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
             <label className="name lead">{this.props.name}</label>
             <br/>
-            <div>
+            <div className={blur}>
             <span className="fas fa-building fa-fw text-muted listicon" data-toggle="tooltip" ></span>
             <span className="text-muted">{this.props.market}</span>
             <br/>
@@ -40,8 +45,9 @@ export class ContactListItem extends React.Component<ContactListItemProps>{
             <br/>
             <span className="fab fa-fly fa-fw text-muted fa-lg listicon" data-toggle="tooltip" ></span>
             <span className="text-muted">{this.props.fact}</span>
+            </div>
         </div>
         </div>
-    </div>
-    </li>}
+    </li>
+}
 }
