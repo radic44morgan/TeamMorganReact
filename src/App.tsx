@@ -1,9 +1,34 @@
 import * as React from 'react';
 import './App.css';
+import { ContactListItem , ContactListItemProps} from './ContactListItem';
 import dolphin from './dolphin.png';
 
-class App extends React.Component {
+interface ContactListItemData {
+    name: string;
+    market: string;
+    cohort: string;
+    phone: string;
+    email: string;
+    img: string;
+    fact: string;
+    blur: boolean;
+}
+interface ContactListState {
+    items: Array<ContactListItemData>;
+}
+
+class ContactList extends React.Component<{}, ContactListState> {
+
+    constructor(p: {}) {
+        super(p);
+        this.state = {items:[]
+      }
+    }
+
     public render() {
+
+        var item:ContactListItemProps = {name:"Morgan Radic", cohort:"C1", phone:"(717) 654-5275", email:"morgan.radic@parivedasolutions.com", market:"Washington, D.C.", fact:"I really want this to work! I really do!"};
+        var data = [item];
         return (
             <div className="container">
                 <div className="row sticky-top">
@@ -94,7 +119,12 @@ class App extends React.Component {
                     <div className="card card-default" id="card_contacts">
                         <div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
                             <ul className="list-group pull-down" id="contact-list">
-                                <div id="table" />
+                                <div id="table">
+                                    <div>
+                                         {data.map(x =>
+                                            <ContactListItem name={x.name} cohort={x.cohort} market={x.market} phone={x.phone} email = {x.email} fact = {x.fact} key={x.name} />)} 
+                                    </div>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -105,4 +135,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default ContactList;
