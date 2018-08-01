@@ -32,28 +32,8 @@ class ContactList extends React.Component<{}, ContactListState> {
         var data = [item];
         return (
             <div className="container">
-                <div className="row sticky-top">
-                    <div className="col-1">
-                        <i id="myProfilebtn" data-toggle="modal" data-target="#myProfileModal" className="fas fa-user-alt fa-5x" />
-                    </div>
-                    <div className="col-4">
-                        <h3>
-                            {/* deleted onclick!!! */}
-                            <span className="badge badge-pill badge-primary" >ID: 123456</span>
-                        </h3>
-                    </div>
-                    <div className="col-6" />
-                    <div className="col-1">
-                        <i id="addbtn" data-toggle="modal" data-target="#addProfileModal" className="float-right fas fa-plus-circle fa-5x" />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        <img src={dolphin} alt="Dolphin" className="displayed" />
-                    </div>
-                </div>
-                {/* <!-- Add Profile Modal --> deleted tabindex!!!*/}
-                <div className="modal fade" id="addProfileModal" role="dialog" aria-labelledby="addProfileModalCenter" aria-hidden="true">
+            {/* <!-- Add Profile Modal --> deleted tabindex!!!*/}
+            <div className="modal fade" id="addProfileModal" role="dialog" aria-labelledby="addProfileModalCenter" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -118,6 +98,27 @@ class ContactList extends React.Component<{}, ContactListState> {
                         </div>
                     </div>
                 </div>
+                <div className="supreme">
+                <div className="row sticky-top">
+                    <div className="col-1">
+                        <i id="myProfilebtn" data-toggle="modal" data-target="#myProfileModal" className="fas fa-user-alt fa-5x" />
+                    </div>
+                    <div className="col-4">
+                        <h3>
+                            {/* deleted onclick!!! */}
+                            <span className="badge badge-pill badge-primary" >ID: 123456</span>
+                        </h3>
+                    </div>
+                    <div className="col-6" />
+                    <div className="col-1">
+                        <i id="addbtn" data-toggle="modal" data-target="#addProfileModal" className="float-right fas fa-plus-circle fa-5x" />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col">
+                        <img src={dolphin} alt="Dolphin" className="displayed" />
+                    </div>
+                </div>
                 <div className="container">
                     {/* <!-- contacts card --> */}
                     <div className="card card-default" id="card_contacts">
@@ -133,7 +134,9 @@ class ContactList extends React.Component<{}, ContactListState> {
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
+            
 
         );
     }
