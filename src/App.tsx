@@ -62,13 +62,10 @@ class ContactList extends React.Component<{}, ContactListState> {
                     <div className="modal-dialog modal-lg" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <div className="container">
-                                    <h5 className="modal-title col-md-4" id="exampleModalLabel">Morgan Radic</h5>
-                                    <button className="button col-md-6" id="profileEditBtn">Edit</button>
-                                    <button type="button" className="close col-md-2" data-dismiss="modal" aria-label="Close">
+                                    <h5 className="modal-title" id="exampleModalLabel">Morgan Radic</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                </div>
                             </div>
                             <div className="modal-body">
                                 <div className="container">
@@ -94,7 +91,6 @@ class ContactList extends React.Component<{}, ContactListState> {
                                     </div>
                                 </div>
                             </div>
-                            <div className="modal-footer" />
                         </div>
                     </div>
                 </div>
