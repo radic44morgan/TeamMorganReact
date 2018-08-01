@@ -25,20 +25,20 @@ export class ContactListItem extends React.Component<ContactListItemProps>{
             <label className="name lead">{this.props.name}</label>
             <br/>
             <div>
-            <span className="fas fa-building fa-fw text-muted" data-toggle="tooltip" ></span>
+            <span className="fas fa-building fa-fw text-muted listicon" data-toggle="tooltip" ></span>
             <span className="text-muted">{this.props.market}</span>
             <br/>
-            <span className="fas fa-briefcase fa-fw text-muted" data-toggle="tooltip" ></span>
+            <span className="fas fa-briefcase fa-fw text-muted listicon" data-toggle="tooltip" ></span>
             <span className="text-muted">{this.props.cohort}</span>
             <br/>
-            <span className="fa fa-fw fa-phone fa-fw text-muted" data-toggle="tooltip" ></span>
+            <span className="fa fa-fw fa-phone fa-fw text-muted listicon" data-toggle="tooltip" ></span>
             <span className="text-muted small">{this.props.phone}</span>
             <br/>
-            <span className="fa fa-fw fa-envelope fa-fw text-muted" data-toggle="tooltip" ></span>
+            <span className="fa fa-fw fa-envelope fa-fw text-muted listicon" data-toggle="tooltip" ></span>
             <span className="text-muted small text-truncate">{this.props.email}</span>
             <br/>
             <br/>
-            <span className="fab fa-fly fa-fw text-muted fa-lg" data-toggle="tooltip" ></span>
+            <span className="fab fa-fly fa-fw text-muted fa-lg listicon" data-toggle="tooltip" ></span>
             <span className="text-muted">{this.props.fact}</span>
         </div>
         </div>
