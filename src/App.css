@@ -1,0 +1,242 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+IMG.displayed {
+  display: block;
+  margin-left: auto;
+  margin-right: auto }
+
+body {
+  background: #edfafd;
+  padding-bottom: 50px;
+}
+.fa-user-alt:hover {
+  color:#125589!important;
+}
+.fa-plus-circle:hover {
+  color:#125589!important;
+}
+div.blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+    background-color: rgb(211, 211, 211);
+}
+div.sticky-top {
+   padding-top: 10px;
+}
+
+i {
+  color: #2a93df;
+}
+
+.badge {
+  background-color: #2a93df;
+}
+
+.input-area {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.button {
+   padding-top: 5px;
+}
+
+h2 {
+   color: #125589;
+}
+.modal-header {
+  color: #125589;
+}
+#loginlabel {
+  color: #125589;
+}
+.btn-primary {
+  background-color: #125589 !important;
+  color: white !important;
+}
+
+.svg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto }
+.svg--rays {
+  width: 100%;
+  height: 100%;
+}
+.svg--bird {
+  top: -60px;
+  left: -30px;
+  width: 280px;
+  height: 280px;
+}
+
+.stop-color {
+  stop-color: #1D2951;
+  -webkit-animation: colors 3s linear infinite;
+          animation: colors 3s linear infinite;
+}
+.stop-color--2 {
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+.stop-color--3 {
+  -webkit-animation-delay: -.5s;
+          animation-delay: -.5s;
+}
+.stop-color--4 {
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+.stop-color--5 {
+  -webkit-animation-delay: -2.5s;
+          animation-delay: -2.5s;
+}
+.stop-color--6 {
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+}
+
+@-webkit-keyframes colors {
+  0% {
+      stop-color: #1D2951;
+    }
+    10% {
+      stop-color: #000080;
+    }
+    20% {
+      stop-color: #1034A6;
+    }
+    30% {
+      stop-color: #0F52BA;
+    }
+    40% {
+      stop-color: #6593F5;
+    }
+    50% {
+      stop-color: #008ECC;
+    }
+    60% {
+      stop-color: #0080FF;
+    }
+    70% {
+      stop-color: #0E4D92;
+    }
+    80% {
+      stop-color: #003152;
+    }
+    90% {
+      stop-color: #111E6C;
+    }
+    100% {
+      stop-color: #1D2951;
+    }
+}
+
+@keyframes colors {
+  0% {
+      stop-color: #1D2951;
+    }
+    10% {
+      stop-color: #000080;
+    }
+    20% {
+      stop-color: #1034A6;
+    }
+    30% {
+      stop-color: #0F52BA;
+    }
+    40% {
+      stop-color: #6593F5;
+    }
+    50% {
+      stop-color: #008ECC;
+    }
+    60% {
+      stop-color: #0080FF;
+    }
+    70% {
+      stop-color: #0E4D92;
+    }
+    80% {
+      stop-color: #003152;
+    }
+    90% {
+      stop-color: #111E6C;
+    }
+    100% {
+      stop-color: #1D2951;
+    }
+}
+/* .svg--bird {
+  -webkit-animation: up-down 1.68s infinite ease-out;
+          animation: up-down 1.68s infinite ease-out;
+} */
+
+@-webkit-keyframes up-down {
+  50% {
+    -webkit-transform: translate(0, 30px);
+            transform: translate(0, 30px);
+  }
+}
+
+
+@keyframes up-down {
+  50% {
+    -webkit-transform: translate(0, 30px);
+            transform: translate(0, 30px);
+  }
+}
+.c-rays {
+  stroke: #020202;
+  stroke-width: 100%;
+  stroke-dasharray: 5%;
+  -webkit-animation: rotate 20s linear infinite;
+          animation: rotate 20s linear infinite;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+
