@@ -43,11 +43,14 @@ class ContactList extends React.Component<{}, ContactListState> {
     private checkID = () => {
         var items = this.state.items;
         var enteredID = this.state.enteredId;
-
-        items.filter(x => x.id == enteredID).forEach(x=> x.found = true); 
+        if (items.filter(x => x.id == enteredID).length === 0) {
+            alert("Invalid Fin ID");
+        }
+        else 
+            items.filter(x => x.id == enteredID).forEach(x=> x.found = true); 
 
         this.setState({items:items});
-        console.log(items);
+        this.setState({enteredId:""});
       } 
 
       private idChanged =(ev: React.SyntheticEvent<HTMLInputElement>) => {
@@ -73,13 +76,13 @@ class ContactList extends React.Component<{}, ContactListState> {
                                 <div className="modal-body">
                                     <div className="input-area row justify-content-center">
                                         <label className="col-3">Fin ID :</label>
-                                        <input onChange={this.idChanged} className="col-9" type="text" name="finid" id="finid" />
+                                        <input onChange={this.idChanged} value={this.state.enteredId} className="col-9" type="text" name="finid" id="finid" />
                                     </div>
                                 </div>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="button" onClick={this.checkID} className="btn btn-primary">Add Profile</button>
+                                <button type="button" onClick={this.checkID} className="btn btn-primary" data-dismiss="modal">Add Profile</button>
                             </div>
                         </div>
                     </div>
