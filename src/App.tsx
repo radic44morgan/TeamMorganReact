@@ -141,14 +141,14 @@ class ContactList extends React.Component<{}, ContactListState> {
                                             <span className="card-text">C1</span>
                                             <br />
                                             <label className="fa fa-fw fa-phone fa-fw text-muted fa-2x listicon" data-toggle="tooltip" title="" data-original-title="(867) 322-1852" />
-                                            <span className="card-text">(215)867-5309</span>
+                                            <span className="card-text">(717) 654-5275</span>
                                             <br />
                                             <label className="fa fa-fw fa-envelope fa-fw text-muted fa-2x listicon" data-toggle="tooltip" title="" data-original-title="debbie.schmidt@example.com" />
                                             <span className="card-text">morgan.radic@parivedasolutions.com</span>
                                             <br />
                                             <br />
                                             <label className="fab fa-fly fa-fw text-muted fa-lg fa-2x listicon" data-toggle="tooltip" title="" data-original-title="Fun Fact" />
-                                            <span className="card-text">I like beets by Jeremiah.</span>
+                                            <span className="card-text">I flipping love my partner. He is the best partner ever. Period.</span>
                                         </div>
                                     </div>
                                 </div>
