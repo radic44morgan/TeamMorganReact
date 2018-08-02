@@ -69,8 +69,8 @@ class ContactList extends React.Component<{}, ContactListState> {
         this.setState({numFound:found});
     }
 
-    public render() {
 
+    public render() {
         
         return (
             <div className="container">
