@@ -62,8 +62,9 @@ IMG.displayed {
   margin-right: auto }
 
 body {
-  background: #edfafd;
+  background-image: url('./img/background2.png');
 }
+
 .progress {
   width: 50%;
 }
