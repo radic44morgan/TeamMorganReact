@@ -3,37 +3,60 @@ import './App.css';
 import { ContactListItem, ContactListItemProps } from './ContactListItem';
 import dolphin from './dolphin.png';
 
-interface ContactListItemData {
-    name: string;
-    market: string;
-    cohort: string;
-    phone: string;
-    email: string;
-    img: string;
-    fact: string;
-    blur: boolean;
-}
+// interface ContactListItemData {
+//     name: string;
+//     market: string;
+//     cohort: string;
+//     phone: string;
+//     email: string;
+//     img: string;
+//     fact: string;
+//     found: boolean;
+//     ID: string;
+// }
 interface ContactListState {
-    items: Array<ContactListItemData>;
+    items: Array<ContactListItemProps>;
+    enteredId: string;
 }
 
 class ContactList extends React.Component<{}, ContactListState> {
 
     constructor(p: {}) {
         super(p);
+        var item1:ContactListItemProps = {name:"Debbie Schmidt", cohort:"C1", phone:"(743) 654-5125", email:"debbie.schmidt@example.com", market:"New York", fact:"I really want this to work! I really do!", img:"http://demos.themes.guide/bodeo/assets/images/users/w104.jpg", found:false, id:"1"};
+        var item2:ContactListItemProps = {name:"Mike Anamendolla", cohort:"A1", phone:"(870) 288-4149", email:"mike.ana@example.com", market:"Washington, D.C.", fact:"I have webbed feet!", img:"http://demos.themes.guide/bodeo/assets/images/users/m101.jpg", found:false, id:"2"};
+        var item3:ContactListItemProps = {name:"Seth Frazier", cohort:"M2", phone:"(560) 180-4143", email:"seth.frazier@example.com", market:"Dallas", fact:"I'm a former Dickey's gas station attendant and my wife collects bottle openers. Our budget is 1.5 million dolars.", img:"http://demos.themes.guide/bodeo/assets/images/users/m105.jpg", found:false, id:"3"};
+        var item4:ContactListItemProps = {name:"Rosemary Porter", cohort:"C2", phone:"(497) 160-9776", email:"rosemary.porter@example.com", market:"Seattle", fact:"I couldn't speak until I reached the age of six years old.", img:"http://demos.themes.guide/bodeo/assets/images/users/w102.jpg", found:false, id:"4"};
+
+        var data = [item1,item2,item3,item4];
         this.state = {
-            items: []
+            items: data,
+            enteredId: ""
         }
     }
 
+    checkId()
+    {
+        alert("test");
+    }
+
+    private checkID = () => {
+        var items = this.state.items;
+        var enteredID = this.state.enteredId;
+
+        items.filter(x => x.id == enteredID).forEach(x=> x.found = true); 
+
+        this.setState({items:items});
+        console.log(items);
+      } 
+
+      private idChanged =(ev: React.SyntheticEvent<HTMLInputElement>) => {
+        this.setState({enteredId: ev.currentTarget.value})
+      }
+
     public render() {
 
-        var item1: ContactListItemProps = { name: "Debbie Schmidt", cohort: "C1", phone: "(743) 654-5125", email: "debbie.schmidt@example.com", market: "New York", fact: "I really want this to work! I really do!", img: "http://demos.themes.guide/bodeo/assets/images/users/w104.jpg", found: false };
-        var item2: ContactListItemProps = { name: "Mike Anamendolla", cohort: "A1", phone: "(870) 288-4149", email: "mike.ana@example.com", market: "Washington, D.C.", fact: "I have webbed feet!", img: "http://demos.themes.guide/bodeo/assets/images/users/m101.jpg", found: false };
-        var item3: ContactListItemProps = { name: "Seth Frazier", cohort: "M2", phone: "(560) 180-4143", email: "seth.frazier@example.com", market: "Dallas", fact: "I'm a former Dickey's gas station attendant and my wife collects bottle openers. Our budget is 1.5 million dolars.", img: "http://demos.themes.guide/bodeo/assets/images/users/m105.jpg", found: false };
-        var item4: ContactListItemProps = { name: "Rosemary Porter", cohort: "C2", phone: "(497) 160-9776", email: "rosemary.porter@example.com", market: "Seattle", fact: "I couldn't speak until I reached the age of six years old.", img: "http://demos.themes.guide/bodeo/assets/images/users/w102.jpg", found: false };
-
-        var data = [item1, item2, item3, item4];
+        
         return (
             <div className="container">
                 {/* <!-- Add Profile Modal --> deleted tabindex!!!*/}
@@ -50,13 +73,13 @@ class ContactList extends React.Component<{}, ContactListState> {
                                 <div className="modal-body">
                                     <div className="input-area row justify-content-center">
                                         <label className="col-3">Fin ID :</label>
-                                        <input className="col-9" type="text" name="finid" id="finid" />
+                                        <input onChange={this.idChanged} className="col-9" type="text" name="finid" id="finid" />
                                     </div>
                                 </div>
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="button" className="btn btn-primary">Add Profile</button>
+                                <button type="button" onClick={this.checkID} className="btn btn-primary">Add Profile</button>
                             </div>
                         </div>
                     </div>
@@ -129,23 +152,23 @@ class ContactList extends React.Component<{}, ContactListState> {
                             </div>
                         </div>
                     </div>
-                    <div id="contactBody" className="container">
-                        {/* <!-- contacts card --> */}
-                        <div className="card card-default" id="card_contacts">
-                            <div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
-                                <ul className="list-group pull-down" id="contact-list">
-                                    <div id="table">
-                                        <div>
-                                            {data.map(x =>
-                                                <ContactListItem name={x.name} cohort={x.cohort} market={x.market} phone={x.phone} email={x.email} fact={x.fact} img={x.img} found={x.found} key={x.name} />)}
-                                        </div>
+                </div>
+                <div id="contact_body" className="container">
+                    {/* <!-- contacts card --> */}
+                    <div className="card card-default" id="card_contacts">
+                        <div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
+                            <ul className="list-group pull-down" id="contact-list">
+                                <div id="table">
+                                    <div>
+                                         {this.state.items.map(x =>
+                                            <ContactListItem name={x.name} cohort={x.cohort} market={x.market} phone={x.phone} email = {x.email} fact = {x.fact} img = {x.img} found={x.found} id={x.id} key={x.name} />)} 
+                                    </div>
                                     </div>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
         );
