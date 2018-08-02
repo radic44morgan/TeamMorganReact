@@ -29,6 +29,16 @@
   font-size: large;
 }
 
+.alert-shown {
+  opacity: 1;
+  transition: all 250ms linear;
+}
+
+.alert-hidden {
+  opacity: 0;
+  transition: all 250ms linear;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -93,9 +103,8 @@ i {
   color: #2a93df;
 }
 
-.badge {
+#idbadge {
   background-color: #2a93df;
-
 }
 
 .input-area {
