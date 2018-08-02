@@ -2,6 +2,7 @@ import * as React from 'react';
 import './App.css';
 import { ContactListItem, ContactListItemProps } from './ContactListItem';
 import dolphin from './dolphin.png';
+import morgan from './morgan.png';
 
 // interface ContactListItemData {
 //     name: string;
@@ -131,7 +132,7 @@ class ContactList extends React.Component<{}, ContactListState> {
                             <div className="modal-body">
                                 <div className="container">
                                     <div className="card">
-                                        <img className="img-fluid rounded-circle d-block mx-auto" height="50%" width="50%" src="http://demos.themes.guide/bodeo/assets/images/users/m101.jpg" alt="Morgan Radic" />
+                                        <img className="img-fluid rounded-circle d-block mx-auto" height="50%" width="50%" src={morgan} alt="Morgan Radic" />
                                         <div className="card-body">
                                             <label className="fas fa-building fa-fw text-muted fa-2x listicon" data-toggle="tooltip" title="" data-original-title="NewYork" />
                                             <span className="card-text">Washington D.C.</span>
