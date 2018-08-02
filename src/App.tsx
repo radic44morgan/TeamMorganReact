@@ -167,7 +167,6 @@ class ContactList extends React.Component<{}, ContactListState> {
                             </div>
                         </div>
                     </div>
-                </div>
                 <div id="contact_body" className="container">
                     {/* <!-- contacts card --> */}
                     <div className="card card-default" id="card_contacts">
@@ -183,6 +182,7 @@ class ContactList extends React.Component<{}, ContactListState> {
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
 
 
