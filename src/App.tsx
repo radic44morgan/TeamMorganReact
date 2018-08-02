@@ -28,16 +28,16 @@ class ContactList extends React.Component<{}, ContactListState> {
 
     public render() {
 
-        var item1:ContactListItemProps = {name:"Debbie Schmidt", cohort:"C1", phone:"(743) 654-5125", email:"debbie.schmidt@example.com", market:"New York", fact:"I really want this to work! I really do!", img:"http://demos.themes.guide/bodeo/assets/images/users/w104.jpg", found:false};
-        var item2:ContactListItemProps = {name:"Mike Anamendolla", cohort:"A1", phone:"(870) 288-4149", email:"mike.ana@example.com", market:"Washington, D.C.", fact:"I have webbed feet!", img:"http://demos.themes.guide/bodeo/assets/images/users/m101.jpg", found:false};
-        var item3:ContactListItemProps = {name:"Seth Frazier", cohort:"M2", phone:"(560) 180-4143", email:"seth.frazier@example.com", market:"Dallas", fact:"I'm a former Dickey's gas station attendant and my wife collects bottle openers. Our budget is 1.5 million dolars.", img:"http://demos.themes.guide/bodeo/assets/images/users/m105.jpg", found:false};
-        var item4:ContactListItemProps = {name:"Rosemary Porter", cohort:"C2", phone:"(497) 160-9776", email:"rosemary.porter@example.com", market:"Seattle", fact:"I couldn't speak until I reached the age of six years old.", img:"http://demos.themes.guide/bodeo/assets/images/users/w102.jpg", found:false};
+        var item1: ContactListItemProps = { name: "Debbie Schmidt", cohort: "C1", phone: "(743) 654-5125", email: "debbie.schmidt@example.com", market: "New York", fact: "I really want this to work! I really do!", img: "http://demos.themes.guide/bodeo/assets/images/users/w104.jpg", found: false };
+        var item2: ContactListItemProps = { name: "Mike Anamendolla", cohort: "A1", phone: "(870) 288-4149", email: "mike.ana@example.com", market: "Washington, D.C.", fact: "I have webbed feet!", img: "http://demos.themes.guide/bodeo/assets/images/users/m101.jpg", found: false };
+        var item3: ContactListItemProps = { name: "Seth Frazier", cohort: "M2", phone: "(560) 180-4143", email: "seth.frazier@example.com", market: "Dallas", fact: "I'm a former Dickey's gas station attendant and my wife collects bottle openers. Our budget is 1.5 million dolars.", img: "http://demos.themes.guide/bodeo/assets/images/users/m105.jpg", found: false };
+        var item4: ContactListItemProps = { name: "Rosemary Porter", cohort: "C2", phone: "(497) 160-9776", email: "rosemary.porter@example.com", market: "Seattle", fact: "I couldn't speak until I reached the age of six years old.", img: "http://demos.themes.guide/bodeo/assets/images/users/w102.jpg", found: false };
 
-        var data = [item1,item2,item3,item4];
+        var data = [item1, item2, item3, item4];
         return (
             <div className="container">
-            {/* <!-- Add Profile Modal --> deleted tabindex!!!*/}
-            <div className="modal fade" id="addProfileModal" role="dialog" aria-labelledby="addProfileModalCenter" aria-hidden="true">
+                {/* <!-- Add Profile Modal --> deleted tabindex!!!*/}
+                <div className="modal fade" id="addProfileModal" role="dialog" aria-labelledby="addProfileModalCenter" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -66,10 +66,10 @@ class ContactList extends React.Component<{}, ContactListState> {
                     <div className="modal-dialog modal-lg" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Morgan Radic</h5>
-                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                <h5 className="modal-title" id="exampleModalLabel">Morgan Radic</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                             <div className="modal-body">
                                 <div className="container">
@@ -99,44 +99,54 @@ class ContactList extends React.Component<{}, ContactListState> {
                     </div>
                 </div>
                 <div className="supreme">
-                <div className="row sticky-top">
-                    <div className="col-1">
-                        <i id="myProfilebtn" data-toggle="modal" data-target="#myProfileModal" className="fas fa-user-alt fa-5x" />
+                    <div className="row sticky-top">
+                        <div className="col-1">
+                            <i id="myProfilebtn" data-toggle="modal" data-target="#myProfileModal" className="fas fa-user-alt fa-5x" />
+                        </div>
+                        <div className="col-4">
+                            <h3>
+                                {/* deleted onclick!!! */}
+                                <span className="badge badge-pill badge-primary" >ID: 123456</span>
+                            </h3>
+                        </div>
+                        <div className="col-6" />
+                        <div className="col-1">
+                            <i id="addbtn" data-toggle="modal" data-target="#addProfileModal" className="float-right fas fa-plus-circle fa-5x" />
+                        </div>
                     </div>
-                    <div className="col-4">
-                        <h3>
-                            {/* deleted onclick!!! */}
-                            <span className="badge badge-pill badge-primary" >ID: 123456</span>
-                        </h3>
-                    </div>
-                    <div className="col-6" />
-                    <div className="col-1">
-                        <i id="addbtn" data-toggle="modal" data-target="#addProfileModal" className="float-right fas fa-plus-circle fa-5x" />
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col">
-                        <img src={dolphin} alt="Dolphin" className="displayed" />
-                    </div>
-                </div>
-                <div className="container">
-                    {/* <!-- contacts card --> */}
-                    <div className="card card-default" id="card_contacts">
-                        <div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
-                            <ul className="list-group pull-down" id="contact-list">
-                                <div id="table">
-                                    <div>
-                                         {data.map(x =>
-                                            <ContactListItem name={x.name} cohort={x.cohort} market={x.market} phone={x.phone} email = {x.email} fact = {x.fact} img = {x.img} found={x.found} key={x.name} />)} 
-                                    </div>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col">
+                                <img src={dolphin} alt="Dolphin" className="displayed" />
+                            </div>
+                        </div>
+                        <div className="row justify-content-center">
+                            <div className="progress">
+                                <div className="progress-bar progress-bar-striped active progress-bar-animated" role="progressbar"
+                                aria-valuenow={40} aria-valuemin={0} aria-valuemax={100} style={{width: '40%'}}>
+                                    40%
                                 </div>
-                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="contactBody" className="container">
+                        {/* <!-- contacts card --> */}
+                        <div className="card card-default" id="card_contacts">
+                            <div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
+                                <ul className="list-group pull-down" id="contact-list">
+                                    <div id="table">
+                                        <div>
+                                            {data.map(x =>
+                                                <ContactListItem name={x.name} cohort={x.cohort} market={x.market} phone={x.phone} email={x.email} fact={x.fact} img={x.img} found={x.found} key={x.name} />)}
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
             </div>
-            
+
 
         );
     }
