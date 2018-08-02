@@ -24,12 +24,12 @@ class ContactList extends React.Component<{}, ContactListState> {
 
     constructor(p: {}) {
         super(p);
-        var item1:ContactListItemProps = {name:"Debbie Schmidt", cohort:"C1", phone:"(743) 654-5125", email:"debbie.schmidt@example.com", market:"New York", fact:"I really want this to work! I really do!", img:"http://demos.themes.guide/bodeo/assets/images/users/w104.jpg", found:false, id:"1"};
-        var item2:ContactListItemProps = {name:"Mike Anamendolla", cohort:"A1", phone:"(870) 288-4149", email:"mike.ana@example.com", market:"Washington, D.C.", fact:"I have webbed feet!", img:"http://demos.themes.guide/bodeo/assets/images/users/m101.jpg", found:false, id:"2"};
-        var item3:ContactListItemProps = {name:"Seth Frazier", cohort:"M2", phone:"(560) 180-4143", email:"seth.frazier@example.com", market:"Dallas", fact:"I'm a former Dickey's gas station attendant and my wife collects bottle openers. Our budget is 1.5 million dolars.", img:"http://demos.themes.guide/bodeo/assets/images/users/m105.jpg", found:false, id:"3"};
-        var item4:ContactListItemProps = {name:"Rosemary Porter", cohort:"C2", phone:"(497) 160-9776", email:"rosemary.porter@example.com", market:"Seattle", fact:"I couldn't speak until I reached the age of six years old.", img:"http://demos.themes.guide/bodeo/assets/images/users/w102.jpg", found:false, id:"4"};
+        var item1: ContactListItemProps = { name: "Debbie Schmidt", cohort: "C1", phone: "(743) 654-5125", email: "debbie.schmidt@example.com", market: "New York", fact: "I really want this to work! I really do!", img: "http://demos.themes.guide/bodeo/assets/images/users/w104.jpg", found: false, id: "1" };
+        var item2: ContactListItemProps = { name: "Mike Anamendolla", cohort: "A1", phone: "(870) 288-4149", email: "mike.ana@example.com", market: "Washington, D.C.", fact: "I have webbed feet!", img: "http://demos.themes.guide/bodeo/assets/images/users/m101.jpg", found: false, id: "2" };
+        var item3: ContactListItemProps = { name: "Seth Frazier", cohort: "M2", phone: "(560) 180-4143", email: "seth.frazier@example.com", market: "Dallas", fact: "I'm a former Dickey's gas station attendant and my wife collects bottle openers. Our budget is 1.5 million dolars.", img: "http://demos.themes.guide/bodeo/assets/images/users/m105.jpg", found: false, id: "3" };
+        var item4: ContactListItemProps = { name: "Rosemary Porter", cohort: "C2", phone: "(497) 160-9776", email: "rosemary.porter@example.com", market: "Seattle", fact: "I couldn't speak until I reached the age of six years old.", img: "http://demos.themes.guide/bodeo/assets/images/users/w102.jpg", found: false, id: "4" };
 
-        var data = [item1,item2,item3,item4];
+        var data = [item1, item2, item3, item4];
         this.state = {
             items: data,
             enteredId: "",
@@ -37,8 +37,7 @@ class ContactList extends React.Component<{}, ContactListState> {
         }
     }
 
-    checkId()
-    {
+    checkId() {
         alert("test");
     }
 
@@ -48,30 +47,30 @@ class ContactList extends React.Component<{}, ContactListState> {
         if (items.filter(x => x.id === enteredID).length === 0) {
             alert("Invalid Fin ID");
         }
-        else 
-            items.filter(x => x.id == enteredID).forEach(x=> x.found = true); 
+        else
+            items.filter(x => x.id == enteredID).forEach(x => x.found = true);
 
-        this.setState({items:items});
-        this.setState({enteredId:""});
+        this.setState({ items: items });
+        this.setState({ enteredId: "" });
         this.getFound();
-      } 
+    }
 
-      private idChanged =(ev: React.SyntheticEvent<HTMLInputElement>) => {
-        this.setState({enteredId: ev.currentTarget.value})
-      }
-      private clearID =() => {
-        this.setState({enteredId:""});
+    private idChanged = (ev: React.SyntheticEvent<HTMLInputElement>) => {
+        this.setState({ enteredId: ev.currentTarget.value })
+    }
+    private clearID = () => {
+        this.setState({ enteredId: "" });
     }
 
     private getFound = () => {
         var items = this.state.items;
         var found = items.filter(x => x.found == true).length;
-        this.setState({numFound:found});
+        this.setState({ numFound: found });
     }
 
     public render() {
 
-        
+
         return (
             <div className="container">
                 {/* <!-- Add Profile Modal --> deleted tabindex!!!*/}
@@ -138,14 +137,18 @@ class ContactList extends React.Component<{}, ContactListState> {
                 </div>
                 <div className="supreme">
                     <div className="row sticky-top">
-                        <div className="col-1">
-                            <i id="myProfilebtn" data-toggle="modal" data-target="#myProfileModal" className="fas fa-user-alt fa-5x" />
-                        </div>
                         <div className="col-4">
-                            <h3>
-                                {/* deleted onclick!!! */}
-                                <span className="badge badge-pill badge-primary" >ID: 123456</span>
-                            </h3>
+                            <div className="row parent">
+                                <div className="col-3">
+                                    <i id="myProfilebtn" data-toggle="modal" data-target="#myProfileModal" className="child1 fas fa-user-alt fa-5x" />
+                                </div>
+                                <div className="col-auto">
+                                    <h3>
+                                        {/* deleted onclick!!! */}
+                                        <span className="child2 badge badge-pill badge-primary" data-toggle="modal" data-target="#myProfileModal">ID: 123456</span>
+                                    </h3>
+                                </div>
+                            </div>
                         </div>
                         <div className="col-6" />
                         <div className="col-1">
@@ -161,8 +164,8 @@ class ContactList extends React.Component<{}, ContactListState> {
                         <div className="row justify-content-center">
                             <div className="progress">
                                 <div className="progress-bar progress-bar-striped active progress-bar-animated" role="progressbar"
-                                aria-valuenow={this.state.numFound/this.state.items.length*100} aria-valuemin={0} aria-valuemax={100} style={{width: this.state.numFound/this.state.items.length*100 + '%'}}>
-                                    {this.state.numFound/this.state.items.length*100}%
+                                    aria-valuenow={this.state.numFound / this.state.items.length * 100} aria-valuemin={0} aria-valuemax={100} style={{ width: this.state.numFound / this.state.items.length * 100 + '%' }}>
+                                    {this.state.numFound / this.state.items.length * 100}%
                                 </div>
                             </div>
                         </div>
@@ -175,15 +178,15 @@ class ContactList extends React.Component<{}, ContactListState> {
                             <ul className="list-group pull-down" id="contact-list">
                                 <div id="table">
                                     <div>
-                                         {this.state.items.map(x =>
-                                            <ContactListItem name={x.name} cohort={x.cohort} market={x.market} phone={x.phone} email = {x.email} fact = {x.fact} img = {x.img} found={x.found} id={x.id} key={x.name} />)} 
+                                        {this.state.items.map(x =>
+                                            <ContactListItem name={x.name} cohort={x.cohort} market={x.market} phone={x.phone} email={x.email} fact={x.fact} img={x.img} found={x.found} id={x.id} key={x.name} />)}
                                     </div>
-                                    </div>
-                                </ul>
-                            </div>
+                                </div>
+                            </ul>
                         </div>
                     </div>
                 </div>
+            </div>
 
 
         );

@@ -13,6 +13,13 @@
   padding: 20px;
   color: white;
 }
+.parent:hover .child1{
+  color:#125589!important;
+  
+}
+.parent:hover .child2{
+  background-color:#125589!important;
+}
 
 .App-title {
   font-size: 1.5em;
@@ -88,6 +95,7 @@ i {
 
 .badge {
   background-color: #2a93df;
+
 }
 
 .input-area {
