@@ -68,8 +68,8 @@ class ContactList extends React.Component<{}, ContactListState> {
         this.setState({ numFound: found });
     }
 
-    public render() {
 
+    public render() {
 
         return (
             <div className="container">
@@ -138,14 +138,14 @@ class ContactList extends React.Component<{}, ContactListState> {
                 <div className="supreme">
                     <div className="row sticky-top">
                         <div className="col-4">
-                            <div className="row parent">
+                            <div className="row parent" data-toggle="modal" data-target="#myProfileModal">
                                 <div className="col-3">
-                                    <i id="myProfilebtn" data-toggle="modal" data-target="#myProfileModal" className="child1 fas fa-user-alt fa-5x" />
+                                    <i id="myProfilebtn" className="child1 fas fa-user-alt fa-5x" />
                                 </div>
                                 <div className="col-auto">
                                     <h3>
                                         {/* deleted onclick!!! */}
-                                        <span className="child2 badge badge-pill badge-primary" data-toggle="modal" data-target="#myProfileModal">ID: 123456</span>
+                                        <span className="child2 badge badge-pill badge-primary" >ID: 123456</span>
                                     </h3>
                                 </div>
                             </div>
@@ -170,24 +170,23 @@ class ContactList extends React.Component<{}, ContactListState> {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="contact_body" className="container">
-                    {/* <!-- contacts card --> */}
-                    <div className="card card-default" id="card_contacts">
-                        <div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
-                            <ul className="list-group pull-down" id="contact-list">
-                                <div id="table">
-                                    <div>
-                                        {this.state.items.map(x =>
-                                            <ContactListItem name={x.name} cohort={x.cohort} market={x.market} phone={x.phone} email={x.email} fact={x.fact} img={x.img} found={x.found} id={x.id} key={x.name} />)}
+                    <div id="contact_body" className="container">
+                        {/* <!-- contacts card --> */}
+                        <div className="card card-default" id="card_contacts">
+                            <div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
+                                <ul className="list-group pull-down" id="contact-list">
+                                    <div id="table">
+                                        <div>
+                                            {this.state.items.map(x =>
+                                                <ContactListItem name={x.name} cohort={x.cohort} market={x.market} phone={x.phone} email={x.email} fact={x.fact} img={x.img} found={x.found} id={x.id} key={x.name} />)}
+                                        </div>
                                     </div>
-                                </div>
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
 
         );
     }
