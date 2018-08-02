@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './App.css';
 import { ContactListItem, ContactListItemProps } from './ContactListItem';
-import dolphin from './dolphin.png';
-import morgan from './morgan.png';
+import dolphin from './img/dolphin.png';
+import morgan from './img/morgan.png';
 
 // interface ContactListItemData {
 //     name: string;
