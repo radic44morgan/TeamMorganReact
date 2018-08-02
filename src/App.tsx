@@ -175,6 +175,7 @@ class ContactList extends React.Component<{}, ContactListState> {
                 </div>
                 <div className="supreme">
                     <div className="row sticky-top">
+                        <div id="sticky_background" className="rounded"/>
                         <div className="col-4">
                             <div className="row parent" data-toggle="modal" data-target="#myProfileModal">
                                 <div className="col-3">
