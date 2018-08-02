@@ -46,7 +46,19 @@ IMG.displayed {
 
 body {
   background: #edfafd;
+}
+.progress {
+  width: 50%;
+}
+.progress-bar {
+  background-color: #2a93df!important;
+}
+.listicon {
+  padding-right: 10px;
+}
+#contact_body {
   padding-bottom: 50px;
+  padding-top: 20px;
 }
 .modal-title {
   font-weight: bold;

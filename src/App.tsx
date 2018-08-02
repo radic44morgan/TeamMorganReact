@@ -62,8 +62,8 @@ class ContactList extends React.Component<{}, ContactListState> {
         
         return (
             <div className="container">
-            {/* <!-- Add Profile Modal --> deleted tabindex!!!*/}
-            <div className="modal fade" id="addProfileModal" role="dialog" aria-labelledby="addProfileModalCenter" aria-hidden="true">
+                {/* <!-- Add Profile Modal --> deleted tabindex!!!*/}
+                <div className="modal fade" id="addProfileModal" role="dialog" aria-labelledby="addProfileModalCenter" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -92,10 +92,10 @@ class ContactList extends React.Component<{}, ContactListState> {
                     <div className="modal-dialog modal-lg" role="document">
                         <div className="modal-content">
                             <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Morgan Radic</h5>
-                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                <h5 className="modal-title" id="exampleModalLabel">Morgan Radic</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                             <div className="modal-body">
                                 <div className="container">
@@ -125,27 +125,38 @@ class ContactList extends React.Component<{}, ContactListState> {
                     </div>
                 </div>
                 <div className="supreme">
-                <div className="row sticky-top">
-                    <div className="col-1">
-                        <i id="myProfilebtn" data-toggle="modal" data-target="#myProfileModal" className="fas fa-user-alt fa-5x" />
+                    <div className="row sticky-top">
+                        <div className="col-1">
+                            <i id="myProfilebtn" data-toggle="modal" data-target="#myProfileModal" className="fas fa-user-alt fa-5x" />
+                        </div>
+                        <div className="col-4">
+                            <h3>
+                                {/* deleted onclick!!! */}
+                                <span className="badge badge-pill badge-primary" >ID: 123456</span>
+                            </h3>
+                        </div>
+                        <div className="col-6" />
+                        <div className="col-1">
+                            <i id="addbtn" data-toggle="modal" data-target="#addProfileModal" className="float-right fas fa-plus-circle fa-5x" />
+                        </div>
                     </div>
-                    <div className="col-4">
-                        <h3>
-                            {/* deleted onclick!!! */}
-                            <span className="badge badge-pill badge-primary" >ID: 123456</span>
-                        </h3>
-                    </div>
-                    <div className="col-6" />
-                    <div className="col-1">
-                        <i id="addbtn" data-toggle="modal" data-target="#addProfileModal" className="float-right fas fa-plus-circle fa-5x" />
+                    <div className="container">
+                        <div className="row">
+                            <div className="col">
+                                <img src={dolphin} alt="Dolphin" className="displayed" />
+                            </div>
+                        </div>
+                        <div className="row justify-content-center">
+                            <div className="progress">
+                                <div className="progress-bar progress-bar-striped active progress-bar-animated" role="progressbar"
+                                aria-valuenow={40} aria-valuemin={0} aria-valuemax={100} style={{width: '40%'}}>
+                                    40%
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col">
-                        <img src={dolphin} alt="Dolphin" className="displayed" />
-                    </div>
-                </div>
-                <div className="container">
+                <div id="contact_body" className="container">
                     {/* <!-- contacts card --> */}
                     <div className="card card-default" id="card_contacts">
                         <div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
@@ -155,14 +166,13 @@ class ContactList extends React.Component<{}, ContactListState> {
                                          {this.state.items.map(x =>
                                             <ContactListItem name={x.name} cohort={x.cohort} market={x.market} phone={x.phone} email = {x.email} fact = {x.fact} img = {x.img} found={x.found} id={x.id} key={x.name} />)} 
                                     </div>
-                                </div>
-                            </ul>
+                                    </div>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
-            </div>
-            
+
 
         );
     }
