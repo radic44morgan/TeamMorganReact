@@ -8,12 +8,10 @@ export interface ContactListItemProps{
     img: string;
     fact: string;
     found: boolean;
-    //onDelete: (name:string) => void;
+    id: string;
 }
 export class ContactListItem extends React.Component<ContactListItemProps>{
-    // onDelete = () =>{
-    //     this.props.onDelete(this.props.name);
-    // }
+
     render()
     {
         var blur = "";
