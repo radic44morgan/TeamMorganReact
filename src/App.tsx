@@ -18,6 +18,9 @@ interface ContactListState {
     items: Array<ContactListItemProps>;
     enteredId: string;
     numFound: number;
+    showingAlert: boolean;
+    previousEnteredId: string;
+    idFound: boolean;
 }
 
 class ContactList extends React.Component<{}, ContactListState> {
@@ -33,26 +36,32 @@ class ContactList extends React.Component<{}, ContactListState> {
         this.state = {
             items: data,
             enteredId: "",
-            numFound: 0
+            numFound: 0,
+            showingAlert: false,
+            previousEnteredId: "",
+            idFound: false
         }
-    }
-
-    checkId() {
-        alert("test");
     }
 
     private checkID = () => {
         var items = this.state.items;
         var enteredID = this.state.enteredId;
+        var found = false;
         if (items.filter(x => x.id === enteredID).length === 0) {
-            alert("Invalid Fin ID");
+            //alert("Invalid Fin ID");
         }
         else
+        {
             items.filter(x => x.id == enteredID).forEach(x => x.found = true);
+            found = true;
+        }
 
         this.setState({ items: items });
+        this.setState({idFound: found});
+        this.setState({previousEnteredId: enteredID});
         this.setState({ enteredId: "" });
         this.getFound();
+        this.handleClickShowAlert();
     }
 
     private idChanged = (ev: React.SyntheticEvent<HTMLInputElement>) => {
@@ -67,6 +76,18 @@ class ContactList extends React.Component<{}, ContactListState> {
         var found = items.filter(x => x.found == true).length;
         this.setState({ numFound: found });
     }
+
+    private handleClickShowAlert() {
+        this.setState({
+          showingAlert: true
+        });
+        
+        setTimeout(() => {
+          this.setState({
+            showingAlert: false
+          });
+        }, 4000);
+      }
 
 
     public render() {
@@ -145,12 +166,16 @@ class ContactList extends React.Component<{}, ContactListState> {
                                 <div className="col-auto">
                                     <h3>
                                         {/* deleted onclick!!! */}
-                                        <span className="child2 badge badge-pill badge-primary" >ID: 123456</span>
+                                        <span id="idbadge" className="child2 badge badge-pill badge-primary" >ID: 123456</span>
                                     </h3>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-6" />
+                        <div className="col-1" />
+                        <div className="col-6">
+                            <h3><span className={"badge badge-pill " + (this.state.showingAlert ? 'alert-shown ' : 'alert-hidden ') + (this.state.idFound ? 'badge-success' : 'badge-danger')} >ID {this.state.previousEnteredId} {(this.state.idFound ? '' : 'Not')} Found</span></h3>
+
+                        </div>
                         <div className="col-1">
                             <i id="addbtn" data-toggle="modal" data-target="#addProfileModal" className="float-right fas fa-plus-circle fa-5x" />
                         </div>
