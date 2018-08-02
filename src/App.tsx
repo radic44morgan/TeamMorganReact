@@ -49,6 +49,7 @@ class ContactList extends React.Component<{}, ContactListState> {
         }
         else
             items.filter(x => x.id == enteredID).forEach(x => x.found = true);
+            this.showConfirmation();
 
         this.setState({ items: items });
         this.setState({ enteredId: "" });
@@ -68,9 +69,7 @@ class ContactList extends React.Component<{}, ContactListState> {
         this.setState({ numFound: found });
     }
 
-
     public render() {
-
         return (
             <div className="container">
                 {/* <!-- Add Profile Modal --> deleted tabindex!!!*/}
