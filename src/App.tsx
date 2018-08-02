@@ -17,6 +17,7 @@ import dolphin from './dolphin.png';
 interface ContactListState {
     items: Array<ContactListItemProps>;
     enteredId: string;
+    numFound: number;
 }
 
 class ContactList extends React.Component<{}, ContactListState> {
@@ -31,7 +32,8 @@ class ContactList extends React.Component<{}, ContactListState> {
         var data = [item1,item2,item3,item4];
         this.state = {
             items: data,
-            enteredId: ""
+            enteredId: "",
+            numFound: 0
         }
     }
 
@@ -43,7 +45,7 @@ class ContactList extends React.Component<{}, ContactListState> {
     private checkID = () => {
         var items = this.state.items;
         var enteredID = this.state.enteredId;
-        if (items.filter(x => x.id == enteredID).length === 0) {
+        if (items.filter(x => x.id === enteredID).length === 0) {
             alert("Invalid Fin ID");
         }
         else 
@@ -51,11 +53,21 @@ class ContactList extends React.Component<{}, ContactListState> {
 
         this.setState({items:items});
         this.setState({enteredId:""});
+        this.getFound();
       } 
 
       private idChanged =(ev: React.SyntheticEvent<HTMLInputElement>) => {
         this.setState({enteredId: ev.currentTarget.value})
       }
+      private clearID =() => {
+        this.setState({enteredId:""});
+    }
+
+    private getFound = () => {
+        var items = this.state.items;
+        var found = items.filter(x => x.found == true).length;
+        this.setState({numFound:found});
+    }
 
     public render() {
 
@@ -81,7 +93,7 @@ class ContactList extends React.Component<{}, ContactListState> {
                                 </div>
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" onClick={this.clearID} className="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                 <button type="button" onClick={this.checkID} className="btn btn-primary" data-dismiss="modal">Add Profile</button>
                             </div>
                         </div>
@@ -149,8 +161,8 @@ class ContactList extends React.Component<{}, ContactListState> {
                         <div className="row justify-content-center">
                             <div className="progress">
                                 <div className="progress-bar progress-bar-striped active progress-bar-animated" role="progressbar"
-                                aria-valuenow={40} aria-valuemin={0} aria-valuemax={100} style={{width: '40%'}}>
-                                    40%
+                                aria-valuenow={this.state.numFound/this.state.items.length*100} aria-valuemin={0} aria-valuemax={100} style={{width: this.state.numFound/this.state.items.length*100 + '%'}}>
+                                    {this.state.numFound/this.state.items.length*100}%
                                 </div>
                             </div>
                         </div>
