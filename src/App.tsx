@@ -30,6 +30,7 @@ class ContactList extends React.Component<{}, ContactListState> {
         super(p);
        
         var data = [];
+        var amountFound = 0;
         var JSONdata = localStorage.getItem("data");
         if (JSONdata != null)
             data = JSON.parse(JSONdata);
@@ -41,11 +42,15 @@ class ContactList extends React.Component<{}, ContactListState> {
 
             data = [item1, item2, item3, item4];
         }
+        var JSONdata2 = localStorage.getItem("amountFound");
+        if (JSONdata2 != null)
+            amountFound = JSON.parse(JSONdata2);
+
             
         this.state = {
             items: data,
             enteredId: "",
-            numFound: 0,
+            numFound: amountFound,
             showingAlert: false,
             previousEnteredId: "",
             idFound: false
@@ -73,7 +78,6 @@ class ContactList extends React.Component<{}, ContactListState> {
         this.handleClickShowAlert();
 
         localStorage.setItem("data", JSON.stringify(items));
-        console.log(localStorage.getItem("data"));
     }
 
     private idChanged = (ev: React.SyntheticEvent<HTMLInputElement>) => {
@@ -87,6 +91,8 @@ class ContactList extends React.Component<{}, ContactListState> {
         var items = this.state.items;
         var found = items.filter(x => x.found == true).length;
         this.setState({ numFound: found });
+        localStorage.setItem("amountFound", JSON.stringify(found));
+        console.log(this.state.numFound);
     }
 
     private handleClickShowAlert() {
@@ -104,7 +110,7 @@ class ContactList extends React.Component<{}, ContactListState> {
 
     public render() {
         return (
-            <div className="container">
+            <div className="container content">
                 {/* <!-- Add Profile Modal --> deleted tabindex!!!*/}
                 <div className="modal fade" id="addProfileModal" role="dialog" aria-labelledby="addProfileModalCenter" aria-hidden="true">
                     <div className="modal-dialog modal-dialog-centered" role="document">
