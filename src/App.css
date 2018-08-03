@@ -63,7 +63,7 @@ IMG.displayed {
 
 body {
   /* background-image: url('./img/background2.png'); */
-  background: #aed9da
+  background: linear-gradient(#aed9da, #edfafd)
 }
 
 .progress {
@@ -118,6 +118,8 @@ div.sticky-top {
   background-color: #aed9da;
   z-index:-1;
 }
+
+
 i {
   color: #2a93df;
 }
