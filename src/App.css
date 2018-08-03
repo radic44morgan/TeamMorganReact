@@ -62,7 +62,8 @@ IMG.displayed {
   margin-right: auto }
 
 body {
-  background-image: url('./img/background2.png');
+  /* background-image: url('./img/background2.png'); */
+  background: #aed9da
 }
 
 .progress {
@@ -114,7 +115,7 @@ div.sticky-top {
   -ms-filter: blur(7px);
   filter: blur(7px);
   opacity: .9;
-  background-color: #edfafd;
+  background-color: #aed9da;
   z-index:-1;
 }
 i {
